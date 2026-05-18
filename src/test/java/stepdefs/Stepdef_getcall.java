@@ -1,7 +1,11 @@
 package stepdefs;
 
 import static io.restassured.RestAssured.given;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.testng.Assert;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.ReadContext;
@@ -44,7 +48,7 @@ public class Stepdef_getcall {
 		Assert.assertEquals(actualcolor, expectedcolor);
 	}
 
-//	Scenario 2: GET all objects
+//	Scenario:Verify user can retrieve list of items
 	@When("user sends GET request to return list of items")
 	public void user_sends_GET_request_to_return_list_of_items() {
 		RESP = REQ_SPEC.when().get("/objects");
@@ -64,6 +68,31 @@ public class Stepdef_getcall {
 	public void verify_if_all_product_names_are_retrieved() {
 		List<String> names = RESP.jsonPath().getList("name");
 		System.out.println(names);
+	}
+
+//	Scenario:verify if the response includes only the specified objects
+	@When("user sends GET request to return only the specified items")
+	public void user_sends_GET_request_to_return_only_the_specified_items() {
+		Map<String, String> queryparam = new HashMap<String, String>();
+		queryparam.put("id", "3");
+		queryparam.put("id", "5");
+		queryparam.put("id", "10");
+		RESP = given().baseUri(baseURI).queryParams(queryparam).when().get("/objects");
+
+	}
+
+	@Then("the status code should be {int}")
+	public void the_status_code_should_be(Integer expectedcode) {
+		int actualcode = RESP.then().extract().statusCode();
+		Assert.assertEquals(actualcode, expectedcode);
+	}
+
+	@Then("the count of items should be {int}")
+	public void the_count_of_items_should_be(Integer exp_count) {
+		List<String> Item_ID = RESP.jsonPath().getList("id");
+		System.out.println("The count of specified items " + Item_ID.size());
+		Assert.assertEquals(Item_ID.size(), exp_count);
+		System.out.println("The item Id's are " + Item_ID);
 	}
 
 }
