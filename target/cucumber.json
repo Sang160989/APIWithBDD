@@ -1,0 +1,485 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "verify user can delete the product",
+        "description": "",
+        "id": "delete-product-api;verify-user-can-delete-the-product",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 495723300,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Restful server is up and running",
+            "match": {
+              "location": "Stepdef_deletecall.restful_server_is_up_and_running()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1332304900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User sends POST request to create a new product",
+            "match": {
+              "location": "Stepdef_deletecall.user_sends_POST_request_to_create_a_new_product()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 53648200,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Response status code should be 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 31
+                }
+              ],
+              "location": "Stepdef_deletecall.response_status_code_should_be(Integer)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 568413600,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Product \"Apple Watch Series 8\" should be created successfully",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Apple Watch Series 8\"",
+                  "offset": 8
+                }
+              ],
+              "location": "Stepdef_deletecall.product_should_be_created_successfully(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 322466700,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User sends GET request using created product id",
+            "match": {
+              "location": "Stepdef_deletecall.user_sends_GET_request_using_created_product_id()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 77548900,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User validates the Strap Colour as \"Elderberry\" in response details",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Elderberry\"",
+                  "offset": 35
+                }
+              ],
+              "location": "Stepdef_deletecall.user_validates_the_Strap_Colour_as_in_response_details(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 322365800,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "User sends DELETE request for the created product",
+            "match": {
+              "location": "Stepdef_deletecall.user_sends_DELETE_request_for_the_created_product()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1700500,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "DELETE API should return status code 200 and message",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 37
+                }
+              ],
+              "location": "Stepdef_deletecall.delete_API_should_return_status_code_and_message(Integer)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 272608800,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "User sends GET request for deleted product id",
+            "match": {
+              "location": "Stepdef_deletecall.user_sends_GET_request_for_deleted_product_id()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 974200,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "Response status code should be 404",
+            "match": {
+              "arguments": [
+                {
+                  "val": "404",
+                  "offset": 31
+                }
+              ],
+              "location": "Stepdef_deletecall.response_status_code_should_be(Integer)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 13590800,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "Response message should indicate object not found",
+            "match": {
+              "location": "Stepdef_deletecall.response_message_should_indicate_object_not_found()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Delete Product API",
+    "description": "",
+    "id": "delete-product-api",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/DeleteObject.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Server is up and running",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 335500,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "API server is up and running",
+            "match": {
+              "location": "Stepdef_getcall.api_server_is_up_and_running()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 6,
+        "name": "Verify user can retrieve single item",
+        "description": "",
+        "id": "get-product-api;verify-user-can-retrieve-single-item",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1281556500,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user sends Get request to return an item by passing id as 5",
+            "match": {
+              "arguments": [
+                {
+                  "val": "5",
+                  "offset": 58
+                }
+              ],
+              "location": "Stepdef_getcall.user_sends_Get_request_to_return_an_item_by_passing_id_as(Integer)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 18964000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "\"Samsung Galaxy Z Fold2\" item and 200 response code are returned",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Samsung Galaxy Z Fold2\"",
+                  "offset": 0
+                },
+                {
+                  "val": "200",
+                  "offset": 34
+                }
+              ],
+              "location": "Stepdef_getcall.item_and_response_code_are_returned(String,Integer)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 15245500,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "validated the item color as \"Brown\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Brown\"",
+                  "offset": 28
+                }
+              ],
+              "location": "Stepdef_getcall.validated_the_item_color_as(String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "Server is up and running",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 402500,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "API server is up and running",
+            "match": {
+              "location": "Stepdef_getcall.api_server_is_up_and_running()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 12,
+        "name": "Verify user can retrieve list of items",
+        "description": "",
+        "id": "get-product-api;verify-user-can-retrieve-list-of-items",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 259396700,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "user sends GET request to return list of items",
+            "match": {
+              "location": "Stepdef_getcall.user_sends_GET_request_to_return_list_of_items()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 47821700,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "all object IDs are retrieved successfully and total count should be 13",
+            "match": {
+              "arguments": [
+                {
+                  "val": "13",
+                  "offset": 68
+                }
+              ],
+              "location": "Stepdef_getcall.all_object_IDs_are_retrieved_successfully_and_total_count_should_be(Integer)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 19169600,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "verify if all product names are retrieved",
+            "match": {
+              "location": "Stepdef_getcall.verify_if_all_product_names_are_retrieved()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Get Product API",
+    "description": "",
+    "id": "get-product-api",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/GetObject.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "verify user can add and store a new object using the data provided in the request payload",
+        "description": "",
+        "id": "create-product-api;verify-user-can-add-and-store-a-new-object-using-the-data-provided-in-the-request-payload",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 256300,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "Restful API is up and running",
+            "match": {
+              "location": "Stepdef_postcall.restful_API_is_up_and_running()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 311942500,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "the user sends a request to add the item using API key authentication",
+            "match": {
+              "location": "Stepdef_postcall.the_user_sends_a_request_to_add_the_item_using_API_key_authentication()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 11321100,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "\"Apple MacBook Pro 16\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Apple MacBook Pro 16\"",
+                  "offset": 0
+                }
+              ],
+              "location": "Stepdef_postcall.is_created(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 37516000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "CPU model is \"Intel Core i9\" and price is 1849.99",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Intel Core i9\"",
+                  "offset": 13
+                },
+                {
+                  "val": "1849.99",
+                  "offset": 42
+                }
+              ],
+              "location": "Stepdef_postcall.cpu_model_is_and_price_is(String,Float)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 790300,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "a 200 response code is returned",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 2
+                }
+              ],
+              "location": "Stepdef_postcall.a_response_code_is_returned(Integer)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 214538200,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User sends GET request using extracted id",
+            "match": {
+              "location": "Stepdef_postcall.user_sends_GET_request_using_extracted_id()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 14594300,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User validates GET response",
+            "match": {
+              "location": "Stepdef_postcall.user_validates_GET_response()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Create Product API",
+    "description": "",
+    "id": "create-product-api",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/PostObject.feature",
+    "tags": []
+  }
+]
